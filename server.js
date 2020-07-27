@@ -48,6 +48,7 @@ require("./routes/api/comment.js")(app);
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
+  
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
