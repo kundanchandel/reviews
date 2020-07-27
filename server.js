@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const cors=require('cors');
 const path=require("path");
 const dotenv=require('dotenv');
-const path=require('path');
+
 dotenv.config();
 
 const app = express();
