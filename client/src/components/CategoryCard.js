@@ -14,11 +14,11 @@ export default function CategoryCard({groupData}) {
                         <div className="card h-100">
                             <div className="card-body">
                                 <h4 className="card-title">
-                                 <Link to={`/product/cat/${groupData.category}`}>{groupData.category}</Link>
+                                 <Link to={`/item/cat/${groupData.category}`}>{groupData.category}</Link>
                                 </h4>
                                 {subgroup.map(subgroup=>{
                                     return (<h5 key={subgroup.subCatgory}>
-                                    <Link to={`/product/sub/${subgroup.subCatgory}`}>{subgroup.subCatgory}</Link>
+                                    <Link to={`/item/sub/${subgroup.subCatgory}`}>{subgroup.subCatgory}</Link>
                                     <span className="badge">{subgroup.subcat.length}</span>
                                 </h5>)
                                 })}

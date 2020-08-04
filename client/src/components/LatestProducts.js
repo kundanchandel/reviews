@@ -22,7 +22,7 @@ export default function LatestReview({ products }) {
           {products2.map((product) => {
             return (
               <div key={product._id} className="col-xs-12 col-sm-6 col-md-4">
-                <Link to={`/product/${product._id}`}>
+                <Link to={`/item/${product._id}`}>
                   <div className="card">
                     <img
                       className="card-img-top"

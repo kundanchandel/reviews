@@ -5,7 +5,7 @@ import StarRatings from "react-star-ratings";
 export default function SIngleProduct({ product }) {
   return (
     <div className="col-xs-12 col-sm-6 col-md-4">
-      <Link to={`/product/${product._id}`}>
+      <Link to={`/item/${product._id}`}>
         <div className="card">
           <img
             className="card-img-top"
