@@ -1,14 +1,32 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 
-export default function SIngleProduct({product}) {
-    
-    return (
-        <div>
-            <Link to={`/product/${product._id}`}>
-           <h1> {product.productName}</h1>
-           
-           </Link>
+export default function SIngleProduct({ product }) {
+  return (
+    <div className="col-xs-12 col-sm-6 col-md-4">
+      <Link to={`/product/${product._id}`}>
+        <div className="card">
+          <img
+            className="card-img-top"
+            src={product.photoUrl}
+            alt="Card image cap"
+          />
+          <div className="card-body">
+            <StarRatings
+              rating={3.55}
+              starRatedColor="orange"
+              starDimension="20px"
+              starSpacing="5px"
+            />
+            <h5 className="card-title">{product.productName}</h5>
+            <p className="card-text">{product.productDescription}</p>
+          </div>
+          <div className="card-footer">
+            <small className="text-muted">{product.category}</small>
+          </div>
         </div>
-    )
+      </Link>
+    </div>
+  );
 }

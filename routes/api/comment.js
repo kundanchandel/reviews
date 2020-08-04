@@ -9,20 +9,23 @@ module.exports = app => {
         Product.findById(req.params.product_id,function(err,product){
             if(err){
                 res.json("Error in finding product.")
+                console.log(err);
             }
             else{
                 var comment = {
                     commentTitle:req.body.commentTitle,
                     fullComment:req.body.fullComment,
-                    rating:req.body.rating
+                    rating:req.body.rating,
+                    author:req.body.user_id,
+                    authorName:req.body.user_name 
                 }
                 Comment.create(comment,(err,newComment)=>{
                     if(err){
                         res.json("Error: error in adding comment.")
+                        console.log(err);
                     }else{
                         //add user id to comment
-                        newComment.author = req.body.user_id;
-                        newComment.authorName=req.body.user_name
+                           
                         //save comment
                         newComment.save();
                         product.comments.push(newComment);

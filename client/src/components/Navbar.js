@@ -25,19 +25,21 @@ class Navbar extends Component {
 
     const guestLinks = (
       <ul className="navbar-nav ml-auto">
-    <li className="nav-item">
+        <li className="nav-item">
           <a className="nav-link" href="/auth/google">
             Login with Google
           </a>
         </li>
-        
       </ul>
     );
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{width:"100%",paddingTop:"15px"}}>
-        <Link className="navbar-brand" to='/'>
-        Top social media mentors and course reviews
+      <nav
+        className="navbar navbar-expand-lg navbar-light bg-light"
+        style={{ width: "100%", paddingTop: "15px" }}
+      >
+        <Link className="navbar-brand" to="/">
+          Top social media mentors and course reviews
         </Link>
         <button
           className="navbar-toggler"
@@ -52,9 +54,7 @@ class Navbar extends Component {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          {isAuthenticated ? authLinks:guestLinks}
-            
-        
+          {isAuthenticated ? authLinks : guestLinks}
         </div>
       </nav>
     );

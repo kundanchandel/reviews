@@ -11,6 +11,10 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
+  website:{
+    type:String,
+    required:true
+  },
   comments:[{
       type:mongoose.Schema.Types.ObjectId,
       ref:"comments"
@@ -29,15 +33,20 @@ const ProductSchema = new Schema({
         required:true
     },
     avgRating:{
-        type:Number
-    },
-    authorRating:{
-      type:Number,
-      required:true
+        type:Number,
+        default:0
     },
     createdAt:{
       type:Date,
       default:Date.now()
+    },
+    featured:{
+      type:Boolean,
+      required:true
+    },
+    moto:{
+      type:String,
+      required:true
     }
 });
 

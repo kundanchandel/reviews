@@ -25,20 +25,22 @@ passport.use(
     },
 
     async(accessToken, refreshToken, profile, done) => {
-      console.log(profile);
-      console.log(profile.emails[0])
+     
       const newUser={
         googleID:profile.id,
         displayName:profile.displayName,
         email:profile.emails[0].value,
-        photo:profile.photos[0].value
+        photo:profile.photos[0].value,
+        
       }
       try {
         let user=await User.findOne({googleID:profile.id})
+        
         if(user){
           done(null,user)
         }else{
           user=await User.create(newUser)
+          
           done(null,user)
         }
       } catch (error) {
