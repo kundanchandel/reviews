@@ -28,7 +28,7 @@ function Product({ match, auth }) {
   const [totalComments, setTotal] = useState(0);
 
   useEffect(() => {
-    Axios.get(`http://localhost:5000/product/${productID}`).then((product) => {
+    Axios.get(`/product/${productID}`).then((product) => {
       console.log(product.data);
       setProduct(product.data.product);
       setAvg(product.data.ratingAverage);
@@ -51,7 +51,7 @@ function Product({ match, auth }) {
       user_photo:user.photo
     };
     console.log(newComment);
-    Axios.post(`http://localhost:5000/comment/${productID}`, newComment).then(
+    Axios.post(`/comment/${productID}`, newComment).then(
       (res) => {
         console.log(res.data);
         alert("comment added successfully")
