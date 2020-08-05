@@ -48,6 +48,7 @@ function Product({ match, auth }) {
       rating: rating,
       user_id: user_id,
       user_name: user.displayName,
+      user_photo:user.photo
     };
     console.log(newComment);
     Axios.post(`http://localhost:5000/comment/${productID}`, newComment).then(
@@ -58,7 +59,7 @@ function Product({ match, auth }) {
         setDesc('')
         setRating(5)
         setLoading(true)
-        Axios.get(`http://localhost:5000/product/${productID}`).then((product) => {
+        Axios.get(`/product/${productID}`).then((product) => {
       console.log(product.data);
       setProduct(product.data.product);
       setAvg(product.data.ratingAverage);
@@ -72,10 +73,10 @@ function Product({ match, auth }) {
   };
 
   const handleDelete=(id)=>{
-    Axios.delete(`http://localhost:5000/comment/${id}`).then(res=>{
+    Axios.delete(`/comment/${id}`).then(res=>{
       alert("comment deleted successfully")
       setLoading(true)
-      Axios.get(`http://localhost:5000/product/${productID}`).then((product) => {
+      Axios.get(`/product/${productID}`).then((product) => {
       console.log(product.data);
       setProduct(product.data.product);
       setAvg(product.data.ratingAverage);
@@ -211,9 +212,7 @@ function Product({ match, auth }) {
                 <ReviewCard
                   key={comment._id}
                   onDelete={handleDelete}
-                  image={
-                    "https://www.10xfactory.com/imager/general/1028/tai-lopez-420x320-20190308_6f16da50af95e8511ca2a9e6a50991c9.jpg"
-                  }
+                  image={comment.authorPhoto}
                   name={comment.authorName}
                   rating={comment.rating}
                   title={comment.commentTitle}

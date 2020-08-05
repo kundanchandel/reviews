@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-
+import { FaSearch} from "react-icons/fa";
 class Navbar extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <a href="/api/logout" className="nav-link">
+     
+          <a href="/api/logout" className="nav-link nav-item">
             <img
               className="rounded-circle"
               src={user.photo}
@@ -19,44 +18,41 @@ class Navbar extends Component {
             />
             Logout
           </a>
-        </li>
-      </ul>
+       
     );
 
     const guestLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <a className="nav-link" href="/auth/google">
+     
+        
+          <a className="nav-link nav-item" href="/auth/google">
             Login with Google
           </a>
-        </li>
-      </ul>
+        
+      
     );
 
     return (
-      <nav
-        className="navbar navbar-expand-lg navbar-light bg-light"
-        style={{ width: "100%", paddingTop: "15px" }}
-      >
-        <Link className="navbar-brand" to="/">
-          Top social media mentors and course reviews
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          {isAuthenticated ? authLinks : guestLinks}
-        </div>
-      </nav>
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+                <Link to='/' className="navbar-brand">
+                    <img src=" https://i.postimg.cc/NF91c7zR/MRC.jpg" width="50" height="50" alt=""/>
+                </Link>
+                <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <form className="form-inline m-auto">
+                        <div className="input-group">                    
+                            <input type="text" className="form-control" placeholder="Find a company or a mentor."/>
+                            <div className="input-group-append">
+                                <button type="button" className="btn btn-secondary"><FaSearch/></button>
+                            </div>
+                        </div>
+                    </form>
+                    <div className="navbar-nav">
+                        {isAuthenticated?authLinks:guestLinks}
+                    </div>
+                </div>
+            </nav>
     );
   }
 }

@@ -12,140 +12,123 @@
 }
 
 /* review card */
-.reviewPage .top {
+.reviewPage .top{
   background-color: #9fd45e;
-  border-top: 5px solid white;
-  border-bottom: 5px solid white;
+  border-top:5px solid white ;
+  border-bottom:5px solid white ;
 }
-.reviewPage .top .content {
+.reviewPage .top .content{
   padding: 30px;
   vertical-align: middle;
   max-width: 1200px;
   margin: auto;
 }
-
-.reviewPage .top .content .avatar img {
-  width: 100%;
-  -webkit-box-shadow: -10px 10px 5px -6px rgba(0, 0, 0, 0.36);
-  -moz-box-shadow: -10px 10px 5px -6px rgba(0, 0, 0, 0.36);
-  box-shadow: -10px 10px 5px -6px rgba(0, 0, 0, 0.36);
+.reviewPage .top .content .avatar img{
+  width:80%;
+  -webkit-box-shadow: -10px 10px 5px -6px rgba(0,0,0,0.36);
+  -moz-box-shadow: -10px 10px 5px -6px rgba(0,0,0,0.36);
+  box-shadow: -10px 10px 5px -6px rgba(0,0,0,0.36);
 }
-
-.reviewPage .top .content .intro {
+.reviewPage .top .content .intro{
   font-weight: bold;
 }
 
-.reviewPage .top .content .intro .rating span {
+.reviewPage .top .content .intro .rating span{
   background-color: white;
   padding: 5px;
-  margin: 5px;
+  margin:10px 10px 10px 0px;
   border-radius: 10%;
 }
-
-.reviewPage .top .content .contactInfo a {
+.reviewPage .top .content .intro StarRatings{
+  margin:10px 10px 10px 0px;
+}
+.reviewPage .top .content .contactInfo a{
   color: black;
   margin-bottom: 25px;
 }
 
-.reviewPage .top .content .contactInfo .visitNow a {
-  margin: 5px auto;
+.reviewPage .top .content .contactInfo .visitNow a{
+  margin:5px;
 }
-.reviewPage .top .content .contactInfo .visitNow h5 {
+.reviewPage .top .content .contactInfo .visitNow h5{
   border-radius: 5%;
   padding: 5px;
   background-color: white;
 }
-.reviewPage .top .content .contactInfo .icons {
+.reviewPage .top .content .contactInfo .icons{
   font-size: 2rem;
   text-align: center;
 }
 @media only screen and (max-width: 900px) {
-  .reviewPage .top .content .contactInfo {
+  .reviewPage .top .content .contactInfo{
     padding-top: 25px;
   }
 }
 
-.reviewPage .main {
+.reviewPage .main{
   background-color: lightgrey;
 }
 
-.reviewPage .main .mainContent {
+.reviewPage .main .mainContent{
   padding-top: 25px;
   max-width: 1000px;
   margin: auto;
 }
 
-.reviewPage .main .mainContent .review {
+.reviewPage .main .mainContent .review{
   background-color: white;
   padding: 25px;
 }
-.reviewPage .main .mainContent .review span {
+.reviewPage .main .mainContent .review span{
   background-color: #9fd45e;
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
 }
 
-.reviewPage .main .mainContent .inputReview form {
+.reviewPage .main .mainContent .inputReview form{
   margin: 10px auto;
   background-color: white;
   padding: 25px;
 }
-.reviewPage .main .mainContent .inputReview form input,
-textarea {
+.reviewPage .main .mainContent .inputReview form input,textarea{
   width: 100%;
   text-align: center;
-  margin: 5px auto;
+  margin:5px auto;
   background-color: #9fd45e;
   border: none;
   border-radius: 10px;
   font-size: 1.5rem !important;
 }
 
-.reviewPage .main .mainContent .description {
+.reviewPage .main .mainContent .description{
   background-color: white;
   margin: 5px auto;
-  padding: 25px;
+  padding: 25px;;
 }
 
-.reviewPage .main .mainContent .description h1 {
+.reviewPage .main .mainContent .description h1{
   color: #9fd45e;
   font-weight: bold;
 }
 
-.reviewCard {
+.reviewCard{
   max-width: 1000px;
   background-color: white;
   padding: 25px;
-  margin: 5px auto !important;
+  margin:5px auto !important;
 }
-.reviewCard .avatar img {
+.reviewCard .avatar img{
   width: 80%;
   border-radius: 50%;
-  margin: 2px auto;
+  margin: 2px auto 15px;
 }
 
-/* ----------------------------------------------- */
-/* Navigation bar */
-.navbar {
+.reviewCard .content .icons{
+  font-size: 2rem;
+}
+
+
+.navbar-dark .navbar-nav .nav-link{
   color: #9fd45e;
-}
-
-.navbar form input {
-  width: 100%;
-  color: #9fd45e !important;
-}
-.navbar .links ul li {
-  display: inline;
-  float: right;
-}
-
-.navbar .links ul li a {
-  color: #9fd45e;
-  font-size: 1.5rem;
-  margin-right: 15px;
-}
-
-.navbar .links ul li a:hover {
-  border-bottom: 2px solid #9fd45e;
 }

@@ -15,6 +15,10 @@ const CommentSchema = new Schema({
     type:String,
     required:true
   },
+  authorPhoto:{
+    type:String,
+    required:true
+  },
   fullComment: {
     type: String,
     required: true

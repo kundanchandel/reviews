@@ -6,7 +6,7 @@ export default function SingleProduct({ match }) {
   const [productsCatwise, setProdcuts] = useState([]);
   useEffect(() => {
     Axios.get(
-      `http://localhost:5000/product/subcatwise/${match.params.id}`
+      `/product/subcatwise/${match.params.id}`
     ).then((products) => {
       setProdcuts(products.data);
     });

@@ -26,7 +26,7 @@ class Landing extends React.Component {
   };
   async componentDidMount() {
     await this.props.setCurrentUser();
-    Axios.get("http://localhost:5000/product/allProducts").then((products) => {
+    Axios.get("/product/allProducts").then((products) => {
       this.setState({ products: products.data });
       //  const groups=_.groupBy(this.state.products,'category')
       const groups = _.chain(this.state.products)
@@ -49,7 +49,7 @@ class Landing extends React.Component {
       if (!this.state.loading) {
         return (
           <>
-            <div className="head-strip"></div>
+            
             <Search />
             <div className="container">
               <div className="row">

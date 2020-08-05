@@ -17,7 +17,8 @@ module.exports = app => {
                     fullComment:req.body.fullComment,
                     rating:req.body.rating,
                     author:req.body.user_id,
-                    authorName:req.body.user_name 
+                    authorName:req.body.user_name,
+                    authorPhoto:req.body.user_photo, 
                 }
                 Comment.create(comment,(err,newComment)=>{
                     if(err){

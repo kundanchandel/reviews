@@ -5,7 +5,7 @@ import SIngleProduct from "./SIngleProduct";
 export default function CatProducts({ match }) {
   const [catproducts, setcatproducts] = useState([]);
   useEffect(() => {
-    Axios.get(`http://localhost:5000/product/cat/${match.params.id}`).then(
+    Axios.get(`/product/cat/${match.params.id}`).then(
       (product) => {
         setcatproducts(product.data);
       }
