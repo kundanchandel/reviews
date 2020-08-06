@@ -1,28 +1,30 @@
 .bg{
     color: white;
     background-color: rgba( 0,0,0,0.7);
-    height: 610px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 50px;
   }
   .bg h1{
     font-family: "Montserrat", sans-serif;
     text-align: center;
-    padding: 0 250px;
-    font-size: 1.4rem;
+    padding:0 auto;
+    font-size: 1.8rem;
     line-height: 80px;
     letter-spacing: 7px;
     font-weight: bolder;
   }
+
   .bg p{
+    text-align: center;
     letter-spacing: 2px;
-    font-size: 1rem;
     line-height: 26px;
     margin-bottom: 40px;
     font-weight: bold;
   }
+
   .bg input{
     border: 2px solid #ffffff;
     background: transparent;
@@ -39,4 +41,16 @@
     padding: 0px 30px;
     display: inline-block;
   }
-  
+  @media only screen and (max-width: 770px) {
+    .bg h1{
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      line-height: 40px;
+    } 
+    .bg p{
+      letter-spacing: 1px;
+    }
+    .bg input{
+      width: auto;
+    }
+}
