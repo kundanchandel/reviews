@@ -1,3 +1,4 @@
+ 
 .latest_review_top {
   text-align: center;
   margin-bottom: 10px;
@@ -115,7 +116,7 @@
   padding:25px;;
 }
 
-.reviewPage .main .mainContent .description h1{
+.reviewPage .main .mainContent .description h2{
   color: #9fd45e;
   font-weight: bold;
 }
@@ -177,4 +178,3 @@
     font-size: 1rem;
   }
 }
-
