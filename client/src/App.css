@@ -127,19 +127,23 @@
   margin:5px auto !important;
 }
 .reviewCard .avatar img{
-  width: 100%;
+  width: 60%;
   border-radius: 50%;
   margin:auto;
 }
-
-.reviewCard .content .icons{
-  font-size: 2rem;
+@media only screen and (max-width: 900px) {
+  .reviewCard .avatar img{
+    width: 120%;
+  }
+}
+.reviewCard button{
+  border: none;
+  background-color: white;
 }
 .reviewCard .delete{
   font-size: 2rem;
   float: right;
   color: red;
-  background-color: none;
   border: none;
 }
 /* ---------------------- */
