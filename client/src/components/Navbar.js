@@ -44,10 +44,10 @@ class Navbar extends Component {
                 
                 <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                      
-                    <div class="input-group m-auto">
-                      <input type="text" class="form-control" placeholder="Find a company or a mentor" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Search</button>
+                    <div className="input-group m-auto">
+                      <input type="text" className="form-control" placeholder="Find a company or a mentor" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                      <div className="input-group-append">
+                        <button className="btn btn-outline-secondary" type="button">Search</button>
                       </div>
                     </div>
 
