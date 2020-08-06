@@ -147,7 +147,7 @@ function Product({ match, auth }) {
               <br />
               <div className="row rating">
                 <div className="col-2">
-                <span>{avgRating}</span>
+                <span>{avgRating.toFixed(1)}</span>
                 </div>
                 <div className="col-10">
                 <StarRatings
