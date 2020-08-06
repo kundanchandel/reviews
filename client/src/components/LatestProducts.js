@@ -21,8 +21,8 @@ export default function LatestReview({ products }) {
         <div className="row">
           {products2.map((product) => {
             return (
-              <div key={product._id} className="col-xs-12 col-sm-6 col-md-4">
-                <Link to={`/item/${product._id}`}>
+              <div key={product._id} className="col-12 col-md-6 col-lg-4 p-5">
+                <Link to={`/item/${product._id}`} style={{color:"grey"}}>
                   <div className="card">
                     <img
                       className="card-img-top"

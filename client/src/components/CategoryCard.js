@@ -10,7 +10,7 @@ export default function CategoryCard({groupData}) {
     const subgroup=_.chain(groupData.sub).groupBy('subCategory').map((value,key)=>({subCatgory:key,subcat:value})).value()
     
     return (
-        <div className="col-lg-4 col-md-6 mb-4">
+        <div className="col-12 col-md-6 col-lg-4 p-5">
                         <div className="card h-100">
                             <div className="card-body">
                                 <h4 className="card-title">
