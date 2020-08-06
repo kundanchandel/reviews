@@ -1,6 +1,6 @@
 import React from "react";
 import StarRatings from "react-star-ratings";
-import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
+import { FaRegThumbsUp, FaRegThumbsDown,FaRegTrashAlt } from "react-icons/fa";
 import { connect } from "react-redux";
 
 function ReviewCard({
@@ -32,12 +32,12 @@ function ReviewCard({
             />
           </div>
         </div>
-        <h5>{title}</h5>
+        <h6>{title}</h6>
         <p>{description}</p>
         <div className="row">
-          <div className="col-6">
+          <div className="col-12">
             {auth.user._id === comment.author ? (
-              <button onClick={() => onDelete(comment._id)}>delete</button>
+              <button className="delete" onClick={() => onDelete(comment._id)}><FaRegTrashAlt/></button>
             ) : (
               ""
             )}
