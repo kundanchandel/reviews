@@ -134,14 +134,14 @@ function Product({ match, auth }) {
       <div className="reviewPage">
         <div className="top">
           <div className="row content">
-            <div className="col-6 col-md-4 avatar">
+            <div className="col-12 col-sm-6 col-md-4 avatar">
               <img
                 src="https://www.10xfactory.com/imager/general/1028/tai-lopez-420x320-20190308_6f16da50af95e8511ca2a9e6a50991c9.jpg"
                 alt="avatar"
               />
             </div>
 
-            <div className="col-6 col-md-4  intro">
+            <div className="col-12 col-sm-6 col-md-4  intro">
               <h2>{singleProduct.productName}</h2>
               <h3>{totalComments} Reviews</h3>
               <br />
@@ -192,7 +192,7 @@ function Product({ match, auth }) {
         <div className="main">
           <div className="mainContent">
             <div className="review">
-              <h1>Rate Your Experience</h1>
+              <h2>Rate Your Experience</h2>
               <br />
               <span>{rating}</span>
               <StarRatings
@@ -210,7 +210,7 @@ function Product({ match, auth }) {
             </div>
 
             <div className="description">
-              <h1>DESCRIPTION</h1>
+              <h2>DESCRIPTION</h2>
               <h5>{singleProduct.productDescription}</h5>
             </div>
 
