@@ -33,26 +33,29 @@ class Navbar extends Component {
 
     return (
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+                
                 <Link to='/' className="navbar-brand">
                     <img src=" https://i.postimg.cc/NF91c7zR/MRC.jpg" width="50" height="50" alt=""/>
                 </Link>
+                
                 <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span className="navbar-toggler-icon"></span>
                 </button>
+                
                 <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <form className="form-inline m-auto">
-                        <div className="input-group">                    
-                            <input type="text" className="form-control" placeholder="Find a company or a mentor."/>
-                            <div className="input-group-append">
-                                <button type="button" className="btn btn-secondary"><FaSearch/></button>
-                            </div>
-                        </div>
-                    </form>
+                     
+                    <div class="input-group m-auto">
+                      <input type="text" class="form-control" placeholder="Find a company or a mentor" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">Search</button>
+                      </div>
+                    </div>
+
                     <div className="navbar-nav">
                         {isAuthenticated?authLinks:guestLinks}
                     </div>
                 </div>
-            </nav>
+      </nav>
     );
   }
 }
