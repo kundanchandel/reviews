@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import StarRatings from "react-star-ratings";
 import "./Product.css";
 import ReviewCard from "./ReviewCard";
-import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
+import { FaFacebookSquare, FaInstagram, FaLink } from "react-icons/fa";
 import ProgateLoader from "react-spinners/PacmanLoader";
 import { css } from "@emotion/core";
 
@@ -105,17 +105,19 @@ function Product({ match, auth }) {
           onChange={(e) => setDesc(e.target.value)}
         />
         <br />
-        <button>Submit review</button>
+        <button className="submitReview">Submit review</button>
       </form>
     </div>
   );
+
   const authfirst = (
-    <div className="inputReview">
+    <button type="button" className="btn">
       <a className="nav-link" href="/auth/google">
-        <button>Login first to submit review</button>
+        Login first to submit review
       </a>
-    </div>
+    </button>
   );
+ 
   if (loading) {
     return (
       <div className="sweet-loading">
@@ -132,46 +134,52 @@ function Product({ match, auth }) {
       <div className="reviewPage">
         <div className="top">
           <div className="row content">
-            <div className="col-sm-6 col-md-4 avatar">
+            <div className="col-6 col-md-4 avatar">
               <img
                 src="https://www.10xfactory.com/imager/general/1028/tai-lopez-420x320-20190308_6f16da50af95e8511ca2a9e6a50991c9.jpg"
                 alt="avatar"
               />
             </div>
 
-            <div className="col-sm-6 col-md-4  intro">
+            <div className="col-6 col-md-4  intro">
               <h2>{singleProduct.productName}</h2>
               <h3>{totalComments} Reviews</h3>
               <br />
-              <div className="rating">
+              <div className="row rating">
+                <div className="col-2">
                 <span>{avgRating}</span>
+                </div>
+                <div className="col-10">
                 <StarRatings
                   rating={avgRating}
                   starRatedColor="orange"
-                  starDimension="25px"
+                  starDimension="20px"
                   starSpacing="5px"
                 />
+                </div>
               </div>
             </div>
 
             <div className="col-sm-12 col-md-4  contactInfo">
-              <a href={singleProduct.website}>
-                {" "}
-                Visit: {singleProduct.website}
-              </a>
-              <div className="row visitNow">
+              <h6>
                 <a href={singleProduct.website}>
-                  <h5>Visit Now</h5>
+                    {" "}
+                    Visit: {singleProduct.website}
                 </a>
-              </div>
+              </h6>
               <h5>{singleProduct.moto}</h5>
               <div className="row icons">
-                <div className="col-6">
+                <div className="col-4">
+                  <a href={singleProduct.website}>
+                    <FaLink />
+                  </a>
+                </div>
+                <div className="col-4">
                   <a href="instagram">
                     <FaFacebookSquare />
                   </a>
                 </div>
-                <div className="col-6">
+                <div className="col-4">
                   <a href="facebook">
                     <FaInstagram />
                   </a>
