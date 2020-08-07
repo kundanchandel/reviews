@@ -21,9 +21,7 @@ export default function CategoryCard({groupData}) {
                                     <Link to={`/item/sub/${subgroup.subCatgory}`}>{subgroup.subCatgory}</Link>
                                     <span className="badge">{subgroup.subcat.length}</span>
                                 </h5>)
-                                })}
-                                
-                               
+                                })}    
                             </div>
                         </div>
                     </div>
