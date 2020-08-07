@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 function CatProducts({ match,setCurrentUser }) {
   const [catproducts, setcatproducts] = useState([]);
-  useEffect(async() => {
+  useEffect(() => {
      setCurrentUser();
     Axios.get(`/product/cat/${match.params.id}`).then(
       (product) => {

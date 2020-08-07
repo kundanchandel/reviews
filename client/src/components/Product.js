@@ -27,7 +27,7 @@ function Product({ match, auth,setCurrentUser }) {
   const [avgRating, setAvg] = useState(0);
   const [totalComments, setTotal] = useState(0);
   
-  useEffect(async() => {
+  useEffect(() => {
     setCurrentUser();   
     Axios.get(`/product/${productID}`).then((product) => {
       console.log(product.data);

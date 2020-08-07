@@ -6,7 +6,7 @@ import { setCurrentUser } from "../actions/authActions";
 
 function SingleProduct({ match,setCurrentUser }) {
   const [productsCatwise, setProdcuts] = useState([]);
-  useEffect(async() => {
+  useEffect(() => {
     setCurrentUser();
     Axios.get(
       `/product/subcatwise/${match.params.id}`
