@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import SIngleProduct from "./SIngleProduct";
+import {connect} from 'react-redux';
+import { setCurrentUser } from "../actions/authActions";
 
-export default function SingleProduct({ match }) {
+function SingleProduct({ match,setCurrentUser }) {
   const [productsCatwise, setProdcuts] = useState([]);
-  useEffect(() => {
+  useEffect(async() => {
+    setCurrentUser();
     Axios.get(
       `/product/subcatwise/${match.params.id}`
     ).then((products) => {
@@ -20,3 +23,8 @@ export default function SingleProduct({ match }) {
     </div>
   );
 }
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { setCurrentUser })(SingleProduct);

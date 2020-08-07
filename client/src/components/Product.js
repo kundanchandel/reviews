@@ -7,6 +7,7 @@ import ReviewCard from "./ReviewCard";
 import { FaFacebookSquare, FaInstagram, FaLink } from "react-icons/fa";
 import ProgateLoader from "react-spinners/PacmanLoader";
 import { css } from "@emotion/core";
+import { setCurrentUser } from "../actions/authActions";
 
 const override = css`
   display: block;
@@ -14,7 +15,7 @@ const override = css`
   border-color: red;
 `;
 
-function Product({ match, auth }) {
+function Product({ match, auth,setCurrentUser }) {
   const { isAuthenticated, user } = auth;
   const productID = match.params.id;
   const user_id = auth.user._id;
@@ -26,14 +27,16 @@ function Product({ match, auth }) {
   const [loading, setLoading] = useState(true);
   const [avgRating, setAvg] = useState(0);
   const [totalComments, setTotal] = useState(0);
-
-  useEffect(() => {
+  
+  useEffect(async() => {
+    setCurrentUser();   
     Axios.get(`/product/${productID}`).then((product) => {
       console.log(product.data);
       setProduct(product.data.product);
       setAvg(product.data.ratingAverage);
       setTotal(product.data.totalComments);
       setLoading(false);
+      
     });
   }, []);
 
@@ -239,4 +242,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, {})(Product);
+export default connect(mapStateToProps, {setCurrentUser})(Product);
