@@ -12,9 +12,6 @@ export default function Categories({groups}) {
                     {groups.map(group=>{
                       return  <CategoryCard  key={group.category} groupData={group}/>
                     })}
-                
-            
-                    
                 </div>
         </div>
     )

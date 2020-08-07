@@ -15,7 +15,7 @@ export default function Search() {
             <p>FIND THE RIGHT PROGRAM TO HELP ADVANCE YOUR LIFE</p>
         </div>
         <div className="search" >
-            <input type="text" name="search" onChange={handleOnChange} placeholder="type here" value={search} />
+            <input type="text" name="search" onChange={handleOnChange} placeholder="Type here" value={search} />
             <a href="">search</a>
         </div>
     </div>

@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings";
+import './singleProduct.css'
 
 export default function SIngleProduct({ product }) {
   return (
-    <div className="col-xs-12 col-sm-6 col-md-3 p-3">
+    <div className="col-12 col-sm-6 col-md-4 p-3">
       <Link to={`/item/${product._id}`} style={{color:"grey"}}>
         <div className="card">
           <img

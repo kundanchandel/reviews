@@ -26,21 +26,26 @@
   }
 
   .bg input{
-    border: 2px solid #ffffff;
-    background: transparent;
+    border: 2px solid #9ACC55;
+    background: white;
     height: 40px;
     width: 430px;
     padding: 5px;
     color: white;
+  }
+  .bg input::placeholder{
+    color: #9ACC55;
+    font-weight: bolder;
   }
   .bg a{
     color: #ffffff;
     background: #9ACC55;
     /* height: 40px; */
     line-height: 40px;
-    padding: 0px 30px;
+    padding: 0px 10px;
     display: inline-block;
   }
+
   @media only screen and (max-width: 770px) {
     .bg h1{
       font-size: 1.4rem;

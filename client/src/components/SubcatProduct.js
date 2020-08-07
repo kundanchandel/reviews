@@ -15,12 +15,15 @@ function SingleProduct({ match,setCurrentUser }) {
     });
   }, []);
 
-  return (
-    <div className="row">
-      {productsCatwise.map((product) => {
-        return <SIngleProduct  key={product._id} product={product} />;
-      })}
+  return (  
+    <div className="container">
+        <div className="row">
+          {productsCatwise.map((product) => {
+            return <SIngleProduct  key={product._id} product={product} />;
+          })}
+        </div>
     </div>
+        
   );
 }
 const mapStateToProps = (state) => ({
