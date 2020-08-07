@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { connect } from "react-redux";
 import StarRatings from "react-star-ratings";
-import "./Product.css";
 import ReviewCard from "./ReviewCard";
 import { FaFacebookSquare, FaInstagram, FaLink } from "react-icons/fa";
 import ProgateLoader from "react-spinners/PacmanLoader";
@@ -89,7 +88,6 @@ function Product({ match, auth,setCurrentUser }) {
     })
   }
   const reviewSubmit = (
-    <div className="inputReview">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -110,7 +108,6 @@ function Product({ match, auth,setCurrentUser }) {
         <br />
         <button className="submitReview">Submit review</button>
       </form>
-    </div>
   );
 
   const authfirst = (

@@ -15,11 +15,11 @@ function ReviewCard({
 }) {
   return (
     <div className="row reviewCard">
-      <div className="row">
-        <div className="col-2 avatar">
+      <div className="row cardTop">
+        <div className="col-3 avatar">
           <img alt="avatar" src={image} />
         </div>
-        <div className="col-10">
+        <div className="col-9">
           <div className="row">
              <h5>{name}</h5>
           </div>
@@ -30,11 +30,9 @@ function ReviewCard({
               starDimension="20px"
               starSpacing="5px"
             />
-          </div>
-              
+          </div>  
         </div>
       </div>
-      <div style={{width:"100%", height:"2px",backgroundColor:"grey", marginTop:"2px"}}></div>
       <div className="row content pt-3">
           <div className="row pl-5">
                 <h6>{title}</h6>
@@ -42,8 +40,8 @@ function ReviewCard({
           <div className="row pl-5">
                 <p>{description}</p> 
           </div>
-          
-        <div className="row iconRow">
+          <hr/>
+        <div className="row iconRow pl-3">
           <div className="col-6 col-sm-4">
                 <button className="icons useful"><FaRegThumbsUp/> USEFUL</button>
           </div>
