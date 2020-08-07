@@ -88,32 +88,37 @@
   width: 100%;
   text-align: center;
   margin:5px auto;
-  background-color: #9fd45e;
-  border: none;
+  border: 2px solid #9fd45e;
   border-radius: 10px;
   font-size: 1.5rem !important;
 }
+.reviewPage .main .mainContent .inputReview form input::placeholder,textarea::placeholder{
+  color: #9fd45e;
+}
 .reviewPage .main .mainContent .inputReview .submitReview{
-  background-color: #9fd45e;
   border-radius: 2%;
-  width: 100%;
-  color: gray;
-  font-size: large;
-  border: none;
-}
-.reviewPage .main .mainContent .inputReview button {
   background-color: #9fd45e;
-  border-radius: 2%;
   width: 100%;
-}
-.reviewPage .main .mainContent .inputReview button a{
   color: white;
   font-size: large;
+  border: none;
+  min-height: 50px;
+}
+.reviewPage .main .mainContent .inputReview .btn{
+  border-radius: 5%;
+  width: 100%;
+  border: 4px solid #9fd45e;
+  background-color: white;
+  color: white;
+}
+.reviewPage .main .mainContent .inputReview .btn a{
+  color:#9fd45e;
+  font-weight: bolder;
 }
 .reviewPage .main .mainContent .description{
   background-color: white;
   margin:5px auto;
-  padding:25px;;
+  padding:25px;
 }
 
 .reviewPage .main .mainContent .description h2{

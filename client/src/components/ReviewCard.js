@@ -30,8 +30,7 @@ function ReviewCard({
               starDimension="20px"
               starSpacing="5px"
             />
-          </div>
-              
+          </div>  
         </div>
       </div>
       <div className="row content pt-3">
