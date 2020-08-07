@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const cors=require('cors');
 const path=require("path");
 const dotenv=require('dotenv');
+const morgan=require('morgan');
 
 dotenv.config();
 
@@ -13,7 +14,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(morgan('dev'));
 require("./models/User.js");
 
 app.use(session({
