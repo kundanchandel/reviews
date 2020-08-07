@@ -7,6 +7,7 @@ import { FaFacebookSquare, FaInstagram, FaLink } from "react-icons/fa";
 import ProgateLoader from "react-spinners/PacmanLoader";
 import { css } from "@emotion/core";
 import { setCurrentUser } from "../actions/authActions";
+import { useAlert } from 'react-alert'
 
 const override = css`
   display: block;
@@ -18,7 +19,7 @@ function Product({ match, auth,setCurrentUser }) {
   const { isAuthenticated, user } = auth;
   const productID = match.params.id;
   const user_id = auth.user._id;
-
+  const alert = useAlert();
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [rating, setRating] = useState(5);
@@ -56,7 +57,9 @@ function Product({ match, auth,setCurrentUser }) {
     Axios.post(`/comment/${productID}`, newComment).then(
       (res) => {
         console.log(res.data);
-        alert("comment added successfully")
+        alert.show('comment added successfuly',{
+          type:'success'
+        })
         setTitle('')
         setDesc('')
         setRating(5)
@@ -76,7 +79,9 @@ function Product({ match, auth,setCurrentUser }) {
 
   const handleDelete=(id)=>{
     Axios.delete(`/comment/${id}`).then(res=>{
-      alert("comment deleted successfully")
+      alert.show('comment deleted successfuly',{
+        type:'success'
+      })
       setLoading(true)
       Axios.get(`/product/${productID}`).then((product) => {
       console.log(product.data);
