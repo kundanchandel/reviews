@@ -89,6 +89,19 @@ function Product({ match, auth,setCurrentUser }) {
   }
   const reviewSubmit = (
       <form onSubmit={handleSubmit}>
+         <div className="review">
+              <h2>Rate Your Experience</h2>
+              <br />
+              <span>{rating}</span>
+              <StarRatings
+                rating={rating}
+                starRatedColor="orange"
+                starDimension="25px"
+                starSpacing="5px"
+                changeRating={changeRating}
+              />
+            </div>
+
         <input
           type="text"
           placeholder="Title your review"
@@ -191,19 +204,6 @@ function Product({ match, auth,setCurrentUser }) {
 
         <div className="main">
           <div className="mainContent">
-            <div className="review">
-              <h2>Rate Your Experience</h2>
-              <br />
-              <span>{rating}</span>
-              <StarRatings
-                rating={rating}
-                starRatedColor="orange"
-                starDimension="25px"
-                starSpacing="5px"
-                changeRating={changeRating}
-              />
-            </div>
-
             <div className="inputReview">
               <br />
               {isAuthenticated ? reviewSubmit : authfirst}

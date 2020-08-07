@@ -42,13 +42,13 @@ function ReviewCard({
           </div>
           <hr/>
         <div className="row iconRow pl-3">
-          <div className="col-6 col-sm-4">
-                <button className="icons useful"><FaRegThumbsUp/> USEFUL</button>
+          <div className="col-4">
+                <button className="icons useful"><FaRegThumbsUp/></button>
           </div>
-          <div className="col-6 col-sm-4">
-                <button className="icons notUseFul"><FaRegThumbsDown/> NOT USEFUL</button>
+          <div className="col-4">
+                <button className="icons notUseFul"><FaRegThumbsDown/></button>
           </div>
-          <div className="col-12 col-sm-4">
+          <div className="col-4">
             {auth.user._id === comment.author ? (
               <button className="delete" onClick={() => onDelete(comment._id)}><FaRegTrashAlt/></button>
             ) : (
