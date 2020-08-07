@@ -129,7 +129,7 @@ function Product({ match, auth,setCurrentUser }) {
   );
 
   const authfirst = (
-    <button type="button" className="btn">
+    <button type="button" className="btn" >
       <a className="nav-link" href="/auth/google">
         Login first to submit review
       </a>
@@ -161,7 +161,7 @@ function Product({ match, auth,setCurrentUser }) {
 
             <div className="col-12 col-sm-6 col-md-4  intro">
               <h2>{singleProduct.productName}</h2>
-              <h3>{totalComments} Reviews</h3>
+              <h5>{totalComments} Reviews</h5>
               <br />
               <div className="row rating">
                 <div className="col-2">
@@ -185,7 +185,7 @@ function Product({ match, auth,setCurrentUser }) {
                     Visit: {singleProduct.website}
                 </a>
               </h6>
-              <h5>{singleProduct.moto}</h5>
+              <h5>{`" ${singleProduct.moto} "`}</h5>
               <div className="row icons">
                 <div className="col-4">
                   <a href={singleProduct.website}>

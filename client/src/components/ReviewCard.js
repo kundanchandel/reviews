@@ -16,12 +16,12 @@ function ReviewCard({
   return (
     <div className="row reviewCard">
       <div className="row cardTop">
-        <div className="col-3 avatar">
+        <div className="col-3 col-sm-2 col-md-1 avatar">
           <img alt="avatar" src={image} />
         </div>
         <div className="col-9">
           <div className="row">
-             <h5>{name}</h5>
+             <h5 style={{marginBottom:"0 !important"}}>{name}</h5>
           </div>
           <div className="row">
           <StarRatings
@@ -37,18 +37,18 @@ function ReviewCard({
           <div className="row pl-5">
                 <h6>{title}</h6>
           </div>
-          <div className="row pl-5">
+          <div className="row pl-5" style={{borderBottom:"1px solid lightgrey",marginBottom:"5px"}}>
                 <p>{description}</p> 
           </div>
           <hr/>
         <div className="row iconRow pl-3">
-          <div className="col-4">
+          <div className="col-2">
                 <button className="icons useful"><FaRegThumbsUp/></button>
           </div>
-          <div className="col-4">
+          <div className="col-2">
                 <button className="icons notUseFul"><FaRegThumbsDown/></button>
           </div>
-          <div className="col-4">
+          <div className="col-2">
             {auth.user._id === comment.author ? (
               <button className="delete" onClick={() => onDelete(comment._id)}><FaRegTrashAlt/></button>
             ) : (
