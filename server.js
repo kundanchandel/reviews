@@ -49,6 +49,7 @@ require("./config/passport");
 require("./routes/api/auth.js")(app);
 require("./routes/api/product.js")(app);
 require("./routes/api/comment.js")(app);
+require("./routes/api/reply.js")(app)
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder

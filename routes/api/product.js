@@ -45,7 +45,13 @@ module.exports = app => {
     })
     app.get('/product/:id',(req,res)=>{
         
-        Product.findById(req.params.id).populate('comments').exec(function(err,product){
+        Product.findById(req.params.id).populate({
+            path: 'comments',
+            model: 'comments',
+            populate: {
+              path: 'replys',
+              model: 'replys'
+            }}).exec(function(err,product){
             var avg=0
             var totalComments=0
             if(err){
