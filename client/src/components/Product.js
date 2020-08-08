@@ -37,7 +37,6 @@ function Product({ match, auth,setCurrentUser }) {
       setAvg(product.data.ratingAverage);
       setTotal(product.data.totalComments);
       setLoading(false);
-      
     });
   }, []);
 
@@ -235,6 +234,7 @@ function Product({ match, auth,setCurrentUser }) {
                   title={comment.commentTitle}
                   description={comment.fullComment}
                   comment={comment}
+                  replys={comment.replys}
                 />
               );
             })}

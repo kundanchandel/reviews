@@ -1,0 +1,27 @@
+.replyCard{
+        background-color:	#F5F5F5;	;
+        padding: 10px 20px;
+        margin:15px auto !important;
+        border-left: 5px solid #9fd45e;
+      }
+      .replyCard .cardTop{
+        border-bottom: 1px solid black;
+        padding-bottom: 5px;
+      }
+      .replyCard .avatar img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin:auto;
+      }
+      .replyCard .content h6{
+        font-weight: bold;
+      }
+      .replyCard button{
+        border: none;
+        background-color: white;
+      }
+      .replyCard .delete{
+        color: red;
+        border: none;
+      }

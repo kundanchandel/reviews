@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Create the Schema
-const CommentSchema = new Schema({
-  commentTitle:{
+const ReplySchema = new Schema({
+  reply:{
     type:String,
     required:true
   },
@@ -19,22 +19,10 @@ const CommentSchema = new Schema({
     type:String,
     required:true
   },
-  fullComment: {
-    type: String,
-    required: true
-  },
-  rating:{
-      type:Number,
-      required:true
-  },
   createdAt:{
       type:Date,
       default:Date.now()
-    },
-    replys:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:"replys"
-  }],
+    }
 });
 
-module.exports = Comment = mongoose.model("comments", CommentSchema);
+module.exports = Comment = mongoose.model("replys", ReplySchema);

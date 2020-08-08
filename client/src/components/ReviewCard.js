@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import StarRatings from "react-star-ratings";
-import { FaRegThumbsUp, FaRegThumbsDown,FaRegTrashAlt } from "react-icons/fa";
+import {FaRegTrashAlt} from "react-icons/fa";
+import {BsChat} from "react-icons/bs";
 import { connect } from "react-redux";
+
 import './reviewCard.css'
+import Reply from './Reply'
 function ReviewCard({
   image,
   name,
@@ -12,7 +15,13 @@ function ReviewCard({
   comment,
   auth,
   onDelete,
+  replys
 }) {
+
+  const [replyVisibility, setReplyVisibilty] = useState(false);
+  function handelReplyChange(){
+    setReplyVisibilty(!replyVisibility);
+  }
   return (
     <div className="row reviewCard">
       <div className="row cardTop">
@@ -43,10 +52,9 @@ function ReviewCard({
           <hr/>
         <div className="row iconRow pl-3">
           <div className="col-2">
-                <button className="icons useful"><FaRegThumbsUp/></button>
-          </div>
-          <div className="col-2">
-                <button className="icons notUseFul"><FaRegThumbsDown/></button>
+              <button onClick={() => handelReplyChange()}>
+                <BsChat/>  
+              </button>
           </div>
           <div className="col-2">
             {auth.user._id === comment.author ? (
@@ -56,6 +64,7 @@ function ReviewCard({
             )}
           </div>  
         </div>
+        {replyVisibility && replys.map((reply)=>{return(<Reply name={reply.authorName} photo={reply.authorPhoto} date={reply.createdAt} data={reply.reply}/>)})}
       </div>
     </div>
   );
