@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import './latestReview.css'
 
 export default function LatestReview({ products }) {
-  const trimDesc=(description)=>{
-    return description.substring(0,50)
-  }
+  
   const products2 = products.slice(0, 3);
   return (
     <div>
@@ -38,7 +36,7 @@ export default function LatestReview({ products }) {
                         starSpacing="5px"
                       /><span>({product.comments.length})</span>
                       <h5 className="card-title">{product.productName}</h5>
-                      <p className="card-text">{trimDesc(product.productDescription)}</p>
+                      
                     </div>
                     <div className="card-footer">
                       <small className="text-muted">{product.category}</small>

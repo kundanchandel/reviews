@@ -2,7 +2,8 @@ const passport = require("passport");
 const express = require("express");
 const app = express();
 const Product =require('../../models/Product');
-const Comment = require('../../models/Comment')
+const Comment = require('../../models/Comment');
+
 
 module.exports = app => {
     app.post("/comment/:product_id/",(req,res)=>{
@@ -53,15 +54,22 @@ module.exports = app => {
         });
     });
 
-    app.delete("/comment/:comment_id",function(req,res){
+    app.delete("/comment/:comment_id",(req,res)=>{
         Comment.findByIdAndRemove(req.params.comment_id,function(err){
             if(err){
-                res.json("Error: Something went wrong while deleting")
+                res.json('comment not found')
             }else{
-                res.json("Comment deleted")
+                Product.findByIdAndUpdate(req.body.product_id
+                    ,{$pull:{comments:{$in:[req.params.comment_id]}}},function(err){
+                        if(err){
+                            res.json('could not remove from product array')
+                        }
+                    })
+                    res.json('successfuly deleted');
             }
-        });
-    });
+        })
+    })
+       
 
 
 };
