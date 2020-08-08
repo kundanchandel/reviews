@@ -10,6 +10,8 @@ import Search from "./Search";
 import Categories from "./Categories";
 import Axios from "axios";
 import LatestReview from "./LatestProducts";
+import MostRated from "./MostRated";
+import FeaturedProduct from './FeaturedProduct';
 
 const override = css`
   display: block;
@@ -57,6 +59,8 @@ class Landing extends React.Component {
               </div>
             </div>
             <LatestReview products={this.state.latest} />
+            <MostRated products={this.state.products}/>
+            <FeaturedProduct products={this.state.products}/>
           </>
         );
       } else {
