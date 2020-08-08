@@ -81,4 +81,17 @@ module.exports = app => {
             
         }).catch(err=>console.log(err))
     })
+    app.delete('/product/delete/:id',(req,res)=>{
+        Product.findById(req.params.id).then(product=>{
+            product.remove().then(pro=>{
+                res.json('product deleted successfuly')
+
+            }).catch(err=>{
+                res.json('error in deleting  product')
+            })
+    
+        }).catch(err=>{
+            res.json("product not deleted")
+        })
+    })
 };

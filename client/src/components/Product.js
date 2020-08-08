@@ -78,7 +78,8 @@ function Product({ match, auth,setCurrentUser }) {
   };
 
   const handleDelete=(id)=>{
-    Axios.delete(`/comment/${id}`).then(res=>{
+    const product_id=productID;
+    Axios.delete(`/comment/${id}`,product_id).then(res=>{
       alert.show('comment deleted successfuly',{
         type:'success'
       })
