@@ -8,6 +8,7 @@ import ProgateLoader from "react-spinners/PacmanLoader";
 import { css } from "@emotion/core";
 import { setCurrentUser } from "../actions/authActions";
 import { useAlert } from 'react-alert'
+import './product.css'
 
 const override = css`
   display: block;
@@ -151,7 +152,9 @@ function Product({ match, auth,setCurrentUser }) {
     return (
       <div className="reviewPage">
         <div className="top">
+          
           <div className="row content">
+            
             <div className="col-12 col-sm-6 col-md-4 avatar">
               <img
                 src="https://www.10xfactory.com/imager/general/1028/tai-lopez-420x320-20190308_6f16da50af95e8511ca2a9e6a50991c9.jpg"
@@ -204,6 +207,11 @@ function Product({ match, auth,setCurrentUser }) {
                 </div>
               </div>
             </div>
+
+          </div>
+          <div className=" row content description">
+              <h2>DESCRIPTION</h2>
+              <h5>{singleProduct.productDescription}</h5>
           </div>
         </div>
 
@@ -212,11 +220,6 @@ function Product({ match, auth,setCurrentUser }) {
             <div className="inputReview">
               <br />
               {isAuthenticated ? reviewSubmit : authfirst}
-            </div>
-
-            <div className="description">
-              <h2>DESCRIPTION</h2>
-              <h5>{singleProduct.productDescription}</h5>
             </div>
 
             {/* Dummy data for card */}

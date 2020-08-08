@@ -1,0 +1,13 @@
+ 
+.latest_review_top {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .latest_review .card {
+    margin-top: 10px;
+  }
+  
+  .latest_review .card .card-body .card-title {
+    margin-top: 10px;
+  }

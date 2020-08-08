@@ -1,0 +1,26 @@
+.reviewCard{
+    max-width: 1000px;
+    background-color: white;
+    padding: 25px;
+    margin:15px auto !important;
+  }
+  .reviewCard .cardTop{
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 2px;
+  }
+  .reviewCard .avatar img{
+    width: 50px;
+    border-radius: 50%;
+    margin:auto;
+  }
+  .reviewCard .content h6{
+    font-weight: bold;
+  }
+  .reviewCard button{
+    border: none;
+    background-color: white;
+  }
+  .reviewCard .delete{
+    color: red;
+    border: none;
+  }
