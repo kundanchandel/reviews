@@ -1,0 +1,31 @@
+
+.navbar-dark .navbar-nav .nav-link{
+    color: #9fd45e;
+  }
+  
+  .navbar-dark .input-group{
+   width: 50%;
+   background-color: #9fd45e;
+   border: 2px solid #9fd45e;
+  }
+  .navbar-dark .input-group ::placeholder{
+    color: #9fd45e;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 1;
+  }
+  
+  .navbar-dark .input-group button{
+    border: none;
+    color: white;
+  }
+  @media only screen and (max-width: 770px) {
+    .navbar-dark .input-group{
+      width: 100%;
+      border: 1px solid #9fd45e;
+     }
+     .navbar-dark .input-group ::placeholder{
+      font-size: 1rem;
+    }
+  }
+  

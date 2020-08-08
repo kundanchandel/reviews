@@ -1,0 +1,120 @@
+.reviewPage{
+  background-color: #f2f2f5;
+}
+.reviewPage .top{
+  background-color: white;
+  border-top:5px solid #f2f2f5;
+  border-bottom:5px solid #f2f2f5 ;
+}
+.reviewPage .top .content{
+  padding: 30px;
+  vertical-align: middle;
+  max-width: 1200px;
+  margin: auto;
+}
+.reviewPage .top .content .avatar img{
+  width:100%;
+  -webkit-box-shadow: -10px 10px 5px -6px rgba(0,0,0,0.36);
+  -moz-box-shadow: -10px 10px 5px -6px rgba(0,0,0,0.36);
+  box-shadow: -10px 10px 5px -6px rgba(0,0,0,0.36);
+}
+.reviewPage .top .content {
+  font-weight: bold;
+}
+.intro h2{
+  font-weight: 100 !important;
+}
+
+.reviewPage .top .content .intro .rating span{
+  background-color: white;
+  padding: 5px;
+  margin:10px 10px 10px 0px;
+  border-radius: 10%;
+}
+.reviewPage .top .content .intro StarRatings{
+  margin:10px 10px 10px 0px;
+}
+.reviewPage .top .content .contactInfo a{
+  color: black;
+  margin-bottom: 25px;
+}
+
+.reviewPage .top .content .contactInfo .icons{
+  font-size: 2rem;
+  text-align: center;
+}
+@media only screen and (max-width: 900px) {
+  .reviewPage .top .content .contactInfo{
+    padding-top: 25px;
+  }
+}
+
+.reviewPage .main{
+  background-color: #f2f2f5;
+}
+
+.reviewPage .main .mainContent{
+  max-width: 1000px;
+  margin: auto;
+}
+
+.reviewPage .main .mainContent .review{
+  background-color: white;
+  padding: 25px;
+}
+.reviewPage .main .mainContent .review span{
+  background-color: #9fd45e;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.reviewPage .main .mainContent .inputReview form{
+  margin:10px auto;
+  background-color: white;
+  padding:25px;
+}
+.reviewPage .main .mainContent .inputReview form input,textarea{
+  width: 100%;
+  text-align: center;
+  margin:5px auto;
+  border: 2px solid #9fd45e;
+  border-radius: 10px;
+  font-size: 1.5rem !important;
+}
+.reviewPage .main .mainContent .inputReview form input::placeholder,textarea::placeholder{
+  color: #9fd45e;
+}
+.reviewPage .main .mainContent .inputReview .submitReview{
+  border-radius: 2%;
+  background-color: #9fd45e;
+  width: 100%;
+  color: white;
+  font-size: large;
+  border: none;
+  min-height: 50px;
+}
+.reviewPage .main .mainContent .inputReview .btn{
+  border-radius: 5%;
+  width: 100%;
+  
+  background-color: white;
+  color: white;
+}
+.reviewPage .main .mainContent .inputReview .btn a{
+  color:#9fd45e;
+  font-weight: bolder;
+}
+
+.reviewPage .description{
+  text-align: center;
+}
+
+.reviewPage .description h2{
+  margin: auto;
+  border-bottom:1px solid #9fd45e ;
+  margin-bottom: 5px;
+  width: 100%;
+  color: #9fd45e;
+  font-weight: bold;
+}

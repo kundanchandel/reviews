@@ -2,7 +2,7 @@ import React from "react";
 import StarRatings from "react-star-ratings";
 import { FaRegThumbsUp, FaRegThumbsDown,FaRegTrashAlt } from "react-icons/fa";
 import { connect } from "react-redux";
-
+import './reviewCard.css'
 function ReviewCard({
   image,
   name,

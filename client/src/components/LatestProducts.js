@@ -1,6 +1,7 @@
 import React from "react";
 import StarRatings from "react-star-ratings";
 import { Link } from "react-router-dom";
+import './latestReview.css'
 
 export default function LatestReview({ products }) {
   

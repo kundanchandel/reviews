@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { FaSearch} from "react-icons/fa";
+import './navbar.css'
 class Navbar extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
