@@ -1,3 +1,16 @@
 .card-img-top{
     max-height: 200px;
 }
+.productcard{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.productcard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+.catcard{
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+
+
+

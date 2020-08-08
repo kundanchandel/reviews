@@ -11,8 +11,8 @@ export default function CategoryCard({groupData}) {
     
     return (
         <div className="col-12 col-md-6 col-lg-4 p-5">
-                        <div className="card h-100">
-                            <div className="card-body">
+                        <div className="catcard card h-100">
+                            <div className="catcard card-body">
                                 <h4 className="card-title">
                                  <Link to={`/item/cat/${groupData.category}`}>{groupData.category}</Link>
                                 </h4>

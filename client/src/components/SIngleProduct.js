@@ -4,6 +4,9 @@ import StarRatings from "react-star-ratings";
 import './singleProduct.css'
 
 export default function SIngleProduct({ product }) {
+  const trimDesc=(description)=>{
+    return description.substring(0,50)
+  }
   return (
     <div className="col-12 col-sm-6 col-md-4 p-3">
       <Link to={`/item/${product._id}`} style={{color:"grey"}}>
@@ -21,7 +24,7 @@ export default function SIngleProduct({ product }) {
               starSpacing="5px"
             />
             <h5 className="card-title">{product.productName}</h5>
-            <p className="card-text">{product.productDescription}</p>
+            <p className="card-text">{trimDesc(product.productDescription)}</p>
           </div>
           <div className="card-footer">
             <small className="text-muted">{product.category}</small>

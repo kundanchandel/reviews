@@ -7,17 +7,27 @@ import Landing from './components/Landing';
 import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
-
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import SubcatProduct from './components/SubcatProduct';
 import CatProducts from './components/CatProducts';
 import Product from './components/Product';
+import AlertTemplate from 'react-alert-template-basic';
 
+const options = {
+  // you can also just use 'bottom center'
+  position: positions.MIDDLE,
+  timeout: 5000,
+  offset: '30px',
+  // you can also just use 'scale'
+  transition: transitions.SCALE
+}
 
 function App() {
   
   
   return (
-    
+    <AlertProvider template={AlertTemplate} {...options}>
+
     <div className="App">
       
       <Router>
@@ -31,7 +41,7 @@ function App() {
       </Switch>
       </Router>
     </div>
-    
+    </AlertProvider>
   );
 }
 

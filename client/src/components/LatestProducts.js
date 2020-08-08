@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function LatestReview({ products }) {
   const trimDesc=(description)=>{
-    return description.substring(0,100)
+    return description.substring(0,50)
   }
   const products2 = products.slice(0, 3);
   return (
@@ -22,8 +22,8 @@ export default function LatestReview({ products }) {
           {products2.map((product) => {
             return (
               <div key={product._id} className="col-12 col-md-6 col-lg-4 p-5">
-                <Link to={`/item/${product._id}`} style={{color:"grey"}}>
-                  <div className="card">
+                <Link to={`/item/${product._id}`} style={{color:"grey",textDecoration:"none"}}>
+                  <div className="card productcard">
                     <img
                       className="card-img-top"
                       src={product.photoUrl}
@@ -35,7 +35,7 @@ export default function LatestReview({ products }) {
                         starRatedColor="orange"
                         starDimension="20px"
                         starSpacing="5px"
-                      />
+                      /><span>({product.comments.length})</span>
                       <h5 className="card-title">{product.productName}</h5>
                       <p className="card-text">{trimDesc(product.productDescription)}</p>
                     </div>
