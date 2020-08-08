@@ -24,3 +24,19 @@
     color: red;
     border: none;
   }
+  .reviewCard .input-group{
+    margin: 10px auto;
+    width: 100%;
+    background-color: #9fd45e;
+    border: 1px solid #9fd45e;
+   }
+   .reviewCard .input-group ::placeholder{
+     color: #9fd45e;
+     font-size: 1.2rem;
+     opacity: 1;
+   }
+   
+   .reviewCard .input-group button{
+     border: none;
+     background-color: #9fd45e;
+   }

@@ -29,12 +29,14 @@ export default function FeaturedProduct({ products }) {
                       alt="Card image cap"
                     />
                     <div className="card-body">
+                     
                       <StarRatings
                         rating={3.55}
                         starRatedColor="orange"
                         starDimension="20px"
                         starSpacing="5px"
-                      /><span>({product.comments.length})</span>
+                      />
+                    <span>({product.comments.length})</span>
                       <h5 className="card-title">{product.productName}</h5>
                       
                     </div>

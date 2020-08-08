@@ -19,6 +19,15 @@ function ReviewCard({
 }) {
 
   const [replyVisibility, setReplyVisibilty] = useState(false);
+
+  const replyForm = (
+  <div className="input-group m-auto">
+      <input type="text" className="form-control" placeholder="Reply on the comment" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+      <div className="input-group-append">
+        <button className="btn btn-outline-secondary" type="button">Reply</button>
+      </div>
+  </div>
+);
   function handelReplyChange(){
     setReplyVisibilty(!replyVisibility);
   }
@@ -64,7 +73,11 @@ function ReviewCard({
             )}
           </div>  
         </div>
+       
+        {replyVisibility && replyForm}
         {replyVisibility && replys.map((reply)=>{return(<Reply name={reply.authorName} photo={reply.authorPhoto} date={reply.createdAt} data={reply.reply}/>)})}
+        
+       
       </div>
     </div>
   );
