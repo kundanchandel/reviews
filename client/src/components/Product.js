@@ -9,6 +9,7 @@ import { css } from "@emotion/core";
 import { setCurrentUser } from "../actions/authActions";
 import { useAlert } from 'react-alert'
 import './product.css'
+import { set } from "mongoose";
 
 const override = css`
   display: block;
@@ -76,6 +77,30 @@ function Product({ match, auth,setCurrentUser }) {
 
     
   };
+  const submitReply=(reply,comment_id)=>{
+    const newReply={
+      reply:reply,
+      authorName:user.displayName,
+      authorPhoto:user.photo,
+      author:user._id
+    }
+    Axios.post(`/reply/${comment_id}`,newReply).then(reply=>{
+
+      alert.show('reply added successfuly',{
+        type:'success'
+      })
+      Axios.get(`/product/${productID}`).then((product) => {
+        console.log(product.data);
+        setProduct(product.data.product);
+        setAvg(product.data.ratingAverage);
+        setTotal(product.data.totalComments);
+        setLoading(false);
+      });
+    }).catch(err=>{
+      console.log('error in adding')
+    })
+
+  }
 
   const handleDelete=(id)=>{
     const product_id=productID;
@@ -235,6 +260,7 @@ function Product({ match, auth,setCurrentUser }) {
                   description={comment.fullComment}
                   comment={comment}
                   replys={comment.replys}
+                  submitReply={submitReply}
                 />
               );
             })}
