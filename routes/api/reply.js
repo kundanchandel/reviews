@@ -8,13 +8,7 @@ const { response } = require("express");
 
 module.exports = app => {
 
-        app.get("/reply",(req,res)=>{
-                Reply.find({}, (err,rep)=>{
-                        res.json(rep);
-                })
-        });
-
-
+       
     app.post("/reply/:comment_id/",(req,res)=>{
         Comment.findById(req.params.comment_id,function(err,comment){
             if(err){
