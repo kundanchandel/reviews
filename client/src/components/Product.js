@@ -261,6 +261,7 @@ function Product({ match, auth,setCurrentUser }) {
                   comment={comment}
                   replys={comment.replys}
                   submitReply={submitReply}
+                  isAuthenticated={isAuthenticated}
                 />
               );
             })}

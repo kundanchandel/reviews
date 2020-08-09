@@ -6,7 +6,9 @@ export default function Reply({
     name,
     photo,
     date,
-    data 
+    data,
+    auth,
+    author
 }) {
         return (
                 <div className="row replyCard">
@@ -24,13 +26,13 @@ export default function Reply({
                                 <div className="row pl-5">
                                         <h6>{data}</h6>
                                 </div>
-                                {/* <div className="row iconRow pl-3">
-                                {auth.user._id === reply.author ? (
+                                <div className="row iconRow pl-3">
+                                {auth.user._id === author ? (
                                         <button className="delete"><FaRegTrashAlt/></button>
                                 ) : (
                                         ""
                                 )}
-                                </div> */}
+                                </div>
                         </div>
                 </div>
         )

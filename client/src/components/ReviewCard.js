@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import "./reviewCard.css";
 import Reply from "./Reply";
 function ReviewCard({
+  isAuthenticated,
   image,
   name,
   rating,
@@ -16,7 +17,7 @@ function ReviewCard({
   auth,
   onDelete,
   replys,
-  submitReply,
+  submitReply
 }) {
   const [reply, setReply] = useState("");
   const [replyVisibility, setReplyVisibilty] = useState(false);
@@ -94,7 +95,7 @@ function ReviewCard({
           </div>
         </div>
 
-        {replyVisibility && replyForm}
+        {replyVisibility && isAuthenticated && replyForm}
         {replyVisibility &&
           replys.map((reply) => {
             return (
@@ -104,6 +105,8 @@ function ReviewCard({
                 photo={reply.authorPhoto}
                 date={reply.createdAt}
                 data={reply.reply}
+                author={reply.author}
+                auth={auth}
               />
             );
           })}
