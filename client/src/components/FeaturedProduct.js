@@ -49,6 +49,9 @@ export default function FeaturedProduct({ products }) {
             );
           })}
         </div>
+        <button type="button" className="square-button mt-3 ">
+          <a href="/auth/google">show more</a>
+        </button>
       </div>
     </div>
   );

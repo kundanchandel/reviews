@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "@emotion/core";
-import ProgateLoader from 'react-spinners/PacmanLoader';
+import ProgateLoader from "react-spinners/PacmanLoader";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { setCurrentUser } from "../actions/authActions";
@@ -11,7 +11,7 @@ import Categories from "./Categories";
 import Axios from "axios";
 import LatestReview from "./LatestProducts";
 import MostRated from "./MostRated";
-import FeaturedProduct from './FeaturedProduct';
+import FeaturedProduct from "./FeaturedProduct";
 import Footer from "./Footer";
 
 const override = css`
@@ -52,7 +52,6 @@ class Landing extends React.Component {
       if (!this.state.loading) {
         return (
           <>
-            
             <Search />
             <div className="container">
               <div className="row">
@@ -60,22 +59,23 @@ class Landing extends React.Component {
               </div>
             </div>
             <LatestReview products={this.state.latest} />
-            <MostRated products={this.state.products}/>
-            <FeaturedProduct products={this.state.products}/>
-            <Footer/>
+            
+            <MostRated products={this.state.products} />
+            <FeaturedProduct products={this.state.products} />
+            <Footer />
           </>
         );
       } else {
         return (
           <>
-          <div className="sweet-loading">
-        <ProgateLoader
-          css={override}
-          size={25}
-          color={"#9ACC55"}
-          loading={this.state.loading}
-        />
-      </div>
+            <div className="sweet-loading">
+              <ProgateLoader
+                css={override}
+                size={25}
+                color={"#9ACC55"}
+                loading={this.state.loading}
+              />
+            </div>
           </>
         );
       }
