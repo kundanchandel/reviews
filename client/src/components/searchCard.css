@@ -1,0 +1,34 @@
+.searchCard{
+    background-color: white;
+color: black; 
+width: 430px;
+height: 30px;
+margin: 0;
+padding:5PX 0;
+border-bottom:1px solid #d3d3d3 ;
+
+}
+.searchCard a{
+       background-color:white;
+       color: black;
+       height: 30px;
+       text-align: left;
+}
+
+@media only screen and (max-width: 770px) {
+        .searchCard{
+                width: 350px;
+        }
+    }
+
+@media only screen and (max-width: 500px){
+        .searchCard{
+                width: 300px;
+        }  
+}
+
+@media only screen and (max-width: 300px){
+        .searchCard{
+                width: 250px;
+        }
+}

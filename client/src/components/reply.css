@@ -23,6 +23,7 @@
         background-color: white;
       }
       .replyCard .delete{
-        color: red;
+        color: black;
+        background-color: transparent;
         border: none;
       }

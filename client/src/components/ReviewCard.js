@@ -54,7 +54,7 @@ function ReviewCard({
         <div className="col-3 col-sm-2 col-md-1 avatar">
           <img alt="avatar" src={image} />
         </div>
-        <div className="col-9">
+        <div className="col-8">
           <div className="row">
             <h5 style={{ marginBottom: "0 !important" }}>{name}</h5>
           </div>
@@ -67,6 +67,17 @@ function ReviewCard({
             />
           </div>
         </div>
+        <div className="col-1 mb-2">
+            {auth.user._id === comment.author ? (
+              <button className="delete" onClick={() => onDelete(comment._id)}>
+                <FaRegTrashAlt/>
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
+
+
       </div>
       <div className="row content pt-3">
         <div className="row pl-5">
@@ -85,15 +96,7 @@ function ReviewCard({
               <BsChat /> {`(${replys.length})`}
             </button>
           </div>
-          <div className="col-2">
-            {auth.user._id === comment.author ? (
-              <button className="delete" onClick={() => onDelete(comment._id)}>
-                <FaRegTrashAlt />
-              </button>
-            ) : (
-              ""
-            )}
-          </div>
+         
         </div>
 
         {replyVisibility && isAuthenticated && replyForm}
