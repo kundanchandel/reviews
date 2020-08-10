@@ -9,7 +9,7 @@ import { css } from "@emotion/core";
 import { setCurrentUser } from "../actions/authActions";
 import { useAlert } from 'react-alert'
 import './product.css'
-import { set } from "mongoose";
+
 
 const override = css`
   display: block;
@@ -101,6 +101,21 @@ function Product({ match, auth,setCurrentUser }) {
     })
 
   }
+  const deleteReply=(id)=>[
+    Axios.delete(`/reply/${id}`).then(reply=>{
+      console.log('deleted')
+      alert.show('reply added successfuly',{
+        type:'success'
+      })
+      Axios.get(`/product/${productID}`).then((product) => {
+        console.log(product.data);
+        setProduct(product.data.product);
+        setAvg(product.data.ratingAverage);
+        setTotal(product.data.totalComments);
+        setLoading(false);
+      });
+    }).catch(err=>console.log(err))
+  ]
 
   const handleDelete=(id)=>{
     const product_id=productID;
@@ -275,6 +290,8 @@ function Product({ match, auth,setCurrentUser }) {
                   replys={comment.replys}
                   submitReply={submitReply}
                   isAuthenticated={isAuthenticated}
+                  auth={auth}
+                  deleteReply={deleteReply}
                 />
               );
             })}

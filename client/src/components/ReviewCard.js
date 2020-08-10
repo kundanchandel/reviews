@@ -17,7 +17,8 @@ function ReviewCard({
   auth,
   onDelete,
   replys,
-  submitReply
+  submitReply,
+  deleteReply
 }) {
   const [reply, setReply] = useState("");
   const [replyVisibility, setReplyVisibilty] = useState(false);
@@ -100,6 +101,8 @@ function ReviewCard({
           replys.map((reply) => {
             return (
               <Reply
+                id={reply._id}
+                deleteReply={deleteReply}
                 key={reply._id}
                 name={reply.authorName}
                 photo={reply.authorPhoto}
