@@ -18,7 +18,7 @@ module.exports = app => {
             else{
                 var reply = {
                     reply:req.body.reply,
-                    //author:req.body.author,
+                    author:req.body.author,
                     authorName:req.body.authorName,
                     authorPhoto:req.body.authorPhoto, 
                 }
