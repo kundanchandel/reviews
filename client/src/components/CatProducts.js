@@ -5,6 +5,7 @@ import { setCurrentUser } from "../actions/authActions";
 import {connect} from 'react-redux';
 import ProgateLoader from "react-spinners/PacmanLoader";
 import { css } from "@emotion/core";
+import Footer from "./Footer";
 
 const override = css`
   display: block;
@@ -52,6 +53,7 @@ function CatProducts({ match,setCurrentUser }) {
           return <SIngleProduct key={product._id} product={product} />;
         })}
       </div>
+      <Footer/>
     </div>
     
   );

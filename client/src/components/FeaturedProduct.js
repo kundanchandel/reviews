@@ -31,7 +31,7 @@ export default function FeaturedProduct({ products }) {
                     <div className="card-body">
                      
                       <StarRatings
-                        rating={3.55}
+                        rating={product.avgRating}
                         starRatedColor="orange"
                         starDimension="20px"
                         starSpacing="5px"
@@ -49,6 +49,9 @@ export default function FeaturedProduct({ products }) {
             );
           })}
         </div>
+        <button type="button" className="square-button mt-3 ">
+          <a href="/auth/google">show more</a>
+        </button>
       </div>
     </div>
   );

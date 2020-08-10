@@ -7,8 +7,10 @@ import { FaFacebookSquare, FaInstagram, FaLink } from "react-icons/fa";
 import ProgateLoader from "react-spinners/PacmanLoader";
 import { css } from "@emotion/core";
 import { setCurrentUser } from "../actions/authActions";
-import { useAlert } from 'react-alert'
-import './product.css'
+import { useAlert } from 'react-alert';
+import MarkdownRenderer from 'react-markdown-renderer';
+import './product.css';
+import Footer from "./Footer";
 
 
 const override = css`
@@ -264,7 +266,7 @@ function Product({ match, auth,setCurrentUser }) {
           </div>
           <div className=" row content description">
               <h2>DESCRIPTION</h2>
-              <h5>{singleProduct.productDescription}</h5>
+              <MarkdownRenderer  markdown={singleProduct.productDescription}/>
           </div>
         </div>
 
@@ -297,6 +299,7 @@ function Product({ match, auth,setCurrentUser }) {
             })}
           </div>
         </div>
+        <Footer/>
       </div>
     );
   }
