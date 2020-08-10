@@ -37,14 +37,7 @@
     color: #9ACC55;
     font-weight: bolder;
   }
-  .bg a{
-    color: #ffffff;
-    background: #9ACC55;
-    /* height: 40px; */
-    line-height: 40px;
-    padding: 0px 10px;
-    display: inline-block;
-  }
+  
 
   @media only screen and (max-width: 770px) {
     .bg h1{
@@ -56,6 +49,17 @@
       letter-spacing: 1px;
     }
     .bg input{
-      width: auto;
+      width: 350px;
     }
 }
+@media only screen and (max-width: 500px){
+  .bg input{
+    width: 300px;
+  }
+} 
+
+@media only screen and (max-width: 300px){
+  .bg input{
+    width: 250px;
+  }
+} 

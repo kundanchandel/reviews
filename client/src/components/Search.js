@@ -32,10 +32,9 @@ export default function Search({ products }) {
           type="text"
           name="search"
           onChange={handleOnChange}
-          placeholder="Type here"
+          placeholder="Search mentor or a company"
           value={search}
         />
-        <a href="">search</a>
       </div>
         {matches.length>0 && search!==''?<SearchCard matches={matches}/>:''}
     </div>

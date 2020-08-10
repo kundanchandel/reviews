@@ -9,17 +9,12 @@ export default function Reply({ name, photo, date,id, data, auth, author,deleteR
         <div className="col-3 col-sm-2 col-md-1 avatar">
           <img alt="avatar" src={photo} />
         </div>
-        <div className="col-9">
+        <div className="col-8">
           <div className="row">
             <h5 style={{ marginBottom: "0 !important" }}>{name}</h5>
           </div>
         </div>
-      </div>
-      <div className="row content pt-3">
-        <div className="row pl-5">
-          <h6>{data}</h6>
-        </div>
-        <div className="row iconRow pl-3">
+        <div className="col-1 iconRow pl-3">
           {auth.user._id == author ? (
             <button onClick={() => {
                     deleteReply(id)
@@ -30,6 +25,13 @@ export default function Reply({ name, photo, date,id, data, auth, author,deleteR
             ""
           )}
         </div>
+
+      </div>
+      <div className="row content pt-3">
+        <div className="row pl-5">
+          <h6>{data}</h6>
+        </div>
+        
       </div>
     </div>
   );
