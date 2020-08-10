@@ -119,7 +119,8 @@ function Product({ match, auth,setCurrentUser }) {
     })
   }
   const reviewSubmit = (
-      <form onSubmit={handleSubmit}>
+    <section className="contact-wrap">
+        <form onSubmit={handleSubmit} className="contact-form">
          <div className="review">
               <h2>Rate Your Experience</h2>
               <br />
@@ -131,27 +132,39 @@ function Product({ match, auth,setCurrentUser }) {
                 starSpacing="5px"
                 changeRating={changeRating}
               />
-            </div>
+        </div>
 
-        <input
-          type="text"
-          placeholder="Title your review"
-          required
-          value={title}
-          name="title"
-          onChange={(e) => setTitle(e.target.value)}
-          maxLength="60"
-        />
-        <textarea
-          maxLength="400"
-          placeholder="Write your review and your experience"
-          required
-          value={desc}
-          onChange={(e) => setDesc(e.target.value)}
-        />
-        <br />
-        <button className="submitReview">Submit review</button>
+        <div className="col-sm-12">
+            <div className="input-block">
+                <input className="form-control" 
+                placeholder="Title your review"
+                type="text"
+                value={title}
+                name="title"
+                onChange={(e) => setTitle(e.target.value)}
+                maxLength="60"
+                />
+            </div>
+        </div>
+
+        <div className="col-sm-12">
+            <div className="input-block textarea">
+                <textarea
+                placeholder="Write your review and your experience"
+                rows="3"
+                type="text"
+                className="form-control"
+                required
+                value={desc}
+                onChange={(e) => setDesc(e.target.value)}
+                />
+            </div>
+        </div>
+        <div className="col-sm-12">
+            <button className="square-button">Submit</button>
+        </div>
       </form>
+    </section>  
   );
 
   const authfirst = (
