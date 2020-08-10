@@ -20,7 +20,7 @@ export default function MostRated({ products }) {
         <div className="row">
           {products2.map((product) => {
             return (
-              <div key={product._id} className="col-12 col-md-6 col-lg-4 p-2">
+              <div key={product._id} className="col-12 col-md-6 col-lg-4 p-5 p-lg-2">
                 <Link to={`/item/${product._id}`} style={{color:"grey",textDecoration:"none"}}>
                   <div className="card productcard">
                     <img
