@@ -168,8 +168,8 @@ function Product({ match, auth,setCurrentUser }) {
   );
 
   const authfirst = (
-    <button type="button" className="btn" >
-      <a className="nav-link" href="/auth/google">
+    <button type="button" className="square-button" >
+      <a href="/auth/google">
         Login first to submit review
       </a>
     </button>

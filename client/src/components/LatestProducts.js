@@ -8,7 +8,7 @@ export default function LatestReview({ products }) {
   const products2 = products.slice(0, 3);
   return (
     <div>
-      <div className="container latest_review">
+      <div className="container latest_review pt-5">
         <div className="row latest_review_top">
           <div className="col-12">
             <h2>Latest Reviews</h2>
@@ -20,7 +20,7 @@ export default function LatestReview({ products }) {
         <div className="row">
           {products2.map((product) => {
             return (
-              <div key={product._id} className="col-12 col-md-6 col-lg-4 p-5">
+              <div key={product._id} className="col-12 col-md-6 col-lg-4 p-2">
                 <Link to={`/item/${product._id}`} style={{color:"grey",textDecoration:"none"}}>
                   <div className="card productcard">
                     <img
