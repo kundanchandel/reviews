@@ -52,7 +52,7 @@ class Landing extends React.Component {
       if (!this.state.loading) {
         return (
           <>
-            <Search />
+            <Search products={this.state.products}/>
             <div className="container">
               <div className="row">
                 <Categories groups={this.state.groups} />

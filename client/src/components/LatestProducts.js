@@ -35,7 +35,7 @@ export default function LatestReview({ products }) {
                     />
                     <div className="card-body">
                       <StarRatings
-                        rating={3.55}
+                        rating={product.avgRating}
                         starRatedColor="orange"
                         starDimension="20px"
                         starSpacing="5px"
