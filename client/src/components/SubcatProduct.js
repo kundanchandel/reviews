@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import { setCurrentUser } from "../actions/authActions";
 import ProgateLoader from "react-spinners/PacmanLoader";
 import { css } from "@emotion/core";
+import Footer from "./Footer";
 
 const override = css`
   display: block;
@@ -51,6 +52,7 @@ if(loading){
             return <SIngleProduct  key={product._id} product={product} />;
           })}
         </div>
+        <Footer/>
     </div>
         
   );

@@ -18,9 +18,7 @@
   -moz-box-shadow: -10px 10px 5px -6px rgba(0,0,0,0.36);
   box-shadow: -10px 10px 5px -6px rgba(0,0,0,0.36);
 }
-.reviewPage .top .content {
-  font-weight: bold;
-}
+
 .intro h2{
   font-weight: 100 !important;
 }
@@ -70,9 +68,7 @@
   border-radius: 10px;
 }
 
-.reviewPage .description{
-  text-align: center;
-}
+
 
 .reviewPage .description h2{
   margin: auto;
