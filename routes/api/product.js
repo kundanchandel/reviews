@@ -77,6 +77,7 @@ module.exports = (app) => {
             avg = total / product.comments.length;
           }
           product.total = totalComments;
+          product.avgRating=avg;
           product.save().then((response) => {
             res.json({
               product: product,
