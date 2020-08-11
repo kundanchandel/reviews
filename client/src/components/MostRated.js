@@ -34,7 +34,7 @@ export default function MostRated({ products }) {
                         starRatedColor="orange"
                         starDimension="20px"
                         starSpacing="5px"
-                      /><span>({product.comments.length})</span>
+                      /><span>({product.total})</span>
                       <h5 className="card-title">{product.productName}</h5>
                       
                     </div>

@@ -7,11 +7,11 @@ import { FaFacebookSquare, FaInstagram, FaLink } from "react-icons/fa";
 import ProgateLoader from "react-spinners/PacmanLoader";
 import { css } from "@emotion/core";
 import { setCurrentUser } from "../actions/authActions";
-import { useAlert } from 'react-alert';
-import MarkdownRenderer from 'react-markdown-renderer';
-import './product.css';
+import { useAlert } from "react-alert";
+import ReactMarkdown from "react-markdown";
+import "./product.css";
 import Footer from "./Footer";
-
+import toc from "remark-toc";
 
 const override = css`
   display: block;
@@ -19,7 +19,7 @@ const override = css`
   border-color: red;
 `;
 
-function Product({ match, auth,setCurrentUser }) {
+function Product({ match, auth, setCurrentUser }) {
   const { isAuthenticated, user } = auth;
   const productID = match.params.id;
   const user_id = auth.user._id;
@@ -31,9 +31,9 @@ function Product({ match, auth,setCurrentUser }) {
   const [loading, setLoading] = useState(true);
   const [avgRating, setAvg] = useState(0);
   const [totalComments, setTotal] = useState(0);
-  
+
   useEffect(() => {
-    setCurrentUser();   
+    setCurrentUser();
     Axios.get(`/product/${productID}`).then((product) => {
       console.log(product.data);
       setProduct(product.data.product);
@@ -54,43 +54,76 @@ function Product({ match, auth,setCurrentUser }) {
       rating: rating,
       user_id: user_id,
       user_name: user.displayName,
-      user_photo:user.photo
+      user_photo: user.photo,
     };
     console.log(newComment);
-    Axios.post(`/comment/${productID}`, newComment).then(
-      (res) => {
-        console.log(res.data);
-        alert.show('comment added successfuly',{
-          type:'success'
-        })
-        setTitle('')
-        setDesc('')
-        setRating(5)
-        setLoading(true)
-        Axios.get(`/product/${productID}`).then((product) => {
-      console.log(product.data);
-      setProduct(product.data.product);
-      setAvg(product.data.ratingAverage);
-      setTotal(product.data.totalComments);
-      setLoading(false);
-    }); 
-      }
-    );
-
-    
+    Axios.post(`/comment/${productID}`, newComment).then((res) => {
+      console.log(res.data);
+      alert.show("comment added successfuly", {
+        type: "success",
+      });
+      setTitle("");
+      setDesc("");
+      setRating(5);
+      setLoading(true);
+      Axios.get(`/product/${productID}`).then((product) => {
+        console.log(product.data);
+        setProduct(product.data.product);
+        setAvg(product.data.ratingAverage);
+        setTotal(product.data.totalComments);
+        setLoading(false);
+      });
+    });
   };
-  const submitReply=(reply,comment_id)=>{
-    const newReply={
-      reply:reply,
-      authorName:user.displayName,
-      authorPhoto:user.photo,
-      author:user._id
-    }
-    Axios.post(`/reply/${comment_id}`,newReply).then(reply=>{
-
-      alert.show('reply added successfuly',{
-        type:'success'
+  const submitReply = (reply, comment_id) => {
+    const newReply = {
+      reply: reply,
+      authorName: user.displayName,
+      authorPhoto: user.photo,
+      author: user._id,
+    };
+    Axios.post(`/reply/${comment_id}`, newReply)
+      .then((reply) => {
+        alert.show("reply added successfuly", {
+          type: "success",
+        });
+        Axios.get(`/product/${productID}`).then((product) => {
+          console.log(product.data);
+          setProduct(product.data.product);
+          setAvg(product.data.ratingAverage);
+          setTotal(product.data.totalComments);
+          setLoading(false);
+        });
       })
+      .catch((err) => {
+        console.log("error in adding");
+      });
+  };
+  const deleteReply = (id) => [
+    Axios.delete(`/reply/${id}`)
+      .then((reply) => {
+        console.log("deleted");
+        alert.show("reply added successfuly", {
+          type: "success",
+        });
+        Axios.get(`/product/${productID}`).then((product) => {
+          console.log(product.data);
+          setProduct(product.data.product);
+          setAvg(product.data.ratingAverage);
+          setTotal(product.data.totalComments);
+          setLoading(false);
+        });
+      })
+      .catch((err) => console.log(err)),
+  ];
+
+  const handleDelete = (id) => {
+    const product_id = productID;
+    Axios.delete(`/comment/${id}`, product_id).then((res) => {
+      alert.show("comment deleted successfuly", {
+        type: "success",
+      });
+      setLoading(true);
       Axios.get(`/product/${productID}`).then((product) => {
         console.log(product.data);
         setProduct(product.data.product);
@@ -98,107 +131,71 @@ function Product({ match, auth,setCurrentUser }) {
         setTotal(product.data.totalComments);
         setLoading(false);
       });
-    }).catch(err=>{
-      console.log('error in adding')
-    })
-
-  }
-  const deleteReply=(id)=>[
-    Axios.delete(`/reply/${id}`).then(reply=>{
-      console.log('deleted')
-      alert.show('reply added successfuly',{
-        type:'success'
-      })
-      Axios.get(`/product/${productID}`).then((product) => {
-        console.log(product.data);
-        setProduct(product.data.product);
-        setAvg(product.data.ratingAverage);
-        setTotal(product.data.totalComments);
-        setLoading(false);
-      });
-    }).catch(err=>console.log(err))
-  ]
-
-  const handleDelete=(id)=>{
-    const product_id=productID;
-    Axios.delete(`/comment/${id}`,product_id).then(res=>{
-      alert.show('comment deleted successfuly',{
-        type:'success'
-      })
-      setLoading(true)
-      Axios.get(`/product/${productID}`).then((product) => {
-      console.log(product.data);
-      setProduct(product.data.product);
-      setAvg(product.data.ratingAverage);
-      setTotal(product.data.totalComments);
-      setLoading(false);
-    }); 
-    })
-  }
+    });
+  };
   const reviewSubmit = (
     <section className="contact-wrap">
-        <form onSubmit={handleSubmit} className="contact-form">
-         <div className="review">
-              <h2>Rate Your Experience</h2>
-              <br />
-              <span>{rating}</span>
-              <StarRatings
-                rating={rating}
-                starRatedColor="orange"
-                starDimension="25px"
-                starSpacing="5px"
-                changeRating={changeRating}
-              />
+      <form onSubmit={handleSubmit} className="contact-form">
+        <div className="review">
+          <h2>Rate Your Experience</h2>
+          <br />
+          <span>{rating}</span>
+          <StarRatings
+            rating={rating}
+            starRatedColor="orange"
+            starDimension="25px"
+            starSpacing="5px"
+            changeRating={changeRating}
+          />
         </div>
 
         <div className="col-sm-12">
-            <div className="input-block">
-                <input className="form-control" 
-                placeholder="Title your review"
-                type="text"
-                value={title}
-                name="title"
-                onChange={(e) => setTitle(e.target.value)}
-                maxLength="60"
-                />
-            </div>
+          <div className="input-block">
+            <input
+              className="form-control"
+              placeholder="Title your review"
+              type="text"
+              value={title}
+              name="title"
+              onChange={(e) => setTitle(e.target.value)}
+              maxLength="60"
+            />
+          </div>
         </div>
 
         <div className="col-sm-12">
-            <div className="input-block textarea">
-                <textarea
-                placeholder="Write your review and your experience"
-                rows="3"
-                type="text"
-                className="form-control"
-                required
-                value={desc}
-                onChange={(e) => setDesc(e.target.value)}
-                />
-            </div>
+          <div className="input-block textarea">
+            <textarea
+              placeholder="Write your review and your experience"
+              rows="3"
+              type="text"
+              className="form-control"
+              required
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+            />
+          </div>
         </div>
         <div className="col-sm-12">
-            <button className="square-button">Submit</button>
+          <button className="square-button">Submit</button>
         </div>
       </form>
-    </section>  
+    </section>
   );
 
   const authfirst = (
-    <button type="button" className="square-button" >
-      <a href="/auth/google">
-        Login first to submit review
-      </a>
+    <button type="button" className="square-button">
+      <a href="/auth/google">Login first to submit review</a>
     </button>
   );
- 
+
   if (loading) {
     return (
       <div className="sweet-loading">
         <ProgateLoader
           css={override}
           size={25}
-          color={"#9ACC55"}
+          color={"#85bc38"}
           loading={loading}
         />
       </div>
@@ -207,12 +204,10 @@ function Product({ match, auth,setCurrentUser }) {
     return (
       <div className="reviewPage">
         <div className="top">
-          
           <div className="row content">
-            
             <div className="col-12 col-sm-6 col-md-4 avatar">
               <img
-                src="https://www.10xfactory.com/imager/general/1028/tai-lopez-420x320-20190308_6f16da50af95e8511ca2a9e6a50991c9.jpg"
+                src={singleProduct.photoUrl}
                 alt="avatar"
               />
             </div>
@@ -223,15 +218,15 @@ function Product({ match, auth,setCurrentUser }) {
               <br />
               <div className="row rating">
                 <div className="col-2">
-                <span>{avgRating.toFixed(1)}</span>
+                  <span>{avgRating.toFixed(1)}</span>
                 </div>
                 <div className="col-10">
-                <StarRatings
-                  rating={avgRating}
-                  starRatedColor="orange"
-                  starDimension="20px"
-                  starSpacing="5px"
-                />
+                  <StarRatings
+                    rating={avgRating}
+                    starRatedColor="orange"
+                    starDimension="20px"
+                    starSpacing="5px"
+                  />
                 </div>
               </div>
             </div>
@@ -239,8 +234,8 @@ function Product({ match, auth,setCurrentUser }) {
             <div className="col-sm-12 col-md-4  contactInfo">
               <h6>
                 <a href={singleProduct.website}>
-                    {" "}
-                    Visit: {singleProduct.website}
+                  {" "}
+                  Visit: {singleProduct.website}
                 </a>
               </h6>
               <h5>{`" ${singleProduct.moto} "`}</h5>
@@ -262,11 +257,17 @@ function Product({ match, auth,setCurrentUser }) {
                 </div>
               </div>
             </div>
-
           </div>
           <div className=" row content description">
-              <h2>DESCRIPTION</h2>
-              <MarkdownRenderer  markdown={singleProduct.productDescription}/>
+            <h2>DESCRIPTION</h2>
+            <div className="result-pane">
+              <ReactMarkdown
+                className="result"
+                source={singleProduct.productDescription}
+                plugins={[toc]}
+                escapeHtml={true}
+              />
+            </div>
           </div>
         </div>
 
@@ -299,7 +300,7 @@ function Product({ match, auth,setCurrentUser }) {
             })}
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
@@ -308,4 +309,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, {setCurrentUser})(Product);
+export default connect(mapStateToProps, { setCurrentUser })(Product);
