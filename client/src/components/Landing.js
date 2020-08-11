@@ -72,7 +72,7 @@ class Landing extends React.Component {
               <ProgateLoader
                 css={override}
                 size={25}
-                color={"#9ACC55"}
+                color={"#85bc38"}
                 loading={this.state.loading}
               />
             </div>
