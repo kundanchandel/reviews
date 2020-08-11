@@ -4,15 +4,16 @@ const app = express();
 const Product = require("../../models/Product");
 const Comment = require("../../models/Comment");
 const User = require("../../models/User");
+const {ensureAuth} = require("../../middleware/auth");
 module.exports = (app) => {
-  app.get("/product/allProducts", (req, res) => {
+  app.get("/product/allProducts",(req, res) => {
     Product.find({})
       .then((products) => {
         res.status(200).json(products);
       })
       .catch((err) => res.json(err));
   });
-  app.post("/product/add", (req, res) => {
+  app.post("/product/add",ensureAuth,(req, res) => {
     const newProduct = {
       productName: req.body.productName,
       productDescription: req.body.productDescription,
@@ -29,7 +30,7 @@ module.exports = (app) => {
       })
       .catch((err) => res.json(err));
   });
-  app.patch("/product/update/:id", (req, res) => {
+  app.patch("/product/update/:id",ensureAuth, (req, res) => {
     Product.findById({ _id: req.params.id })
       .then((product) => {
         (product.productName = req.body.productName),
@@ -102,7 +103,7 @@ module.exports = (app) => {
       })
       .catch((err) => console.log(err));
   });
-  app.delete("/product/delete/:id", (req, res) => {
+  app.delete("/product/delete/:id",ensureAuth, (req, res) => {
     Product.findById(req.params.id)
       .then((product) => {
         product

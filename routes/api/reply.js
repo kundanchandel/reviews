@@ -4,12 +4,12 @@ const app = express();
 const Reply =require('../../models/Reply');
 const Comment = require('../../models/Comment');
 const { response } = require("express");
-
+const {ensureAuth} = require("../../middleware/auth");
 
 module.exports = app => {
 
        
-    app.post("/reply/:comment_id/",(req,res)=>{
+    app.post("/reply/:comment_id/",ensureAuth,(req,res)=>{
         Comment.findById(req.params.comment_id,function(err,comment){
             if(err){
                 res.json("Error in finding comment.")
@@ -52,7 +52,7 @@ module.exports = app => {
 //         });
 //     });
 
-    app.delete("/reply/:reply_id",(req,res)=>{
+    app.delete("/reply/:reply_id",ensureAuth,(req,res)=>{
         Reply.findByIdAndRemove(req.params.reply_id,function(err){
             if(err){
                 res.json('reply not found')

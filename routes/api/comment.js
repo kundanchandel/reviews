@@ -3,10 +3,10 @@ const express = require("express");
 const app = express();
 const Product =require('../../models/Product');
 const Comment = require('../../models/Comment');
-
+const {ensureAuth} = require("../../middleware/auth");
 
 module.exports = app => {
-    app.post("/comment/:product_id/",(req,res)=>{
+    app.post("/comment/:product_id/",ensureAuth,(req,res)=>{
         Product.findById(req.params.product_id,function(err,product){
             if(err){
                 res.json("Error in finding product.")
@@ -39,7 +39,7 @@ module.exports = app => {
         })
     });  
 
-    app.put("/comment/:comment_id",function(req,res){
+    app.put("/comment/:comment_id",ensureAuth,function(req,res){
         var updatedComment={
             commentTitle:req.body.commentTitle,
             fullComment:req.body.fullComment,
@@ -54,7 +54,7 @@ module.exports = app => {
         });
     });
 
-    app.delete("/comment/:comment_id",(req,res)=>{
+    app.delete("/comment/:comment_id",ensureAuth,(req,res)=>{
         Comment.findByIdAndRemove(req.params.comment_id,function(err){
             if(err){
                 res.json('comment not found')
