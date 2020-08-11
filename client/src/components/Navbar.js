@@ -29,7 +29,7 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+      <nav className="navbar sticky-top  navbar-expand-md navbar-dark bg-dark">
         <Link to="/" className="navbar-brand">
           <img
             src=" https://i.postimg.cc/NF91c7zR/MRC.jpg"

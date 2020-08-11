@@ -103,7 +103,7 @@ function Product({ match, auth, setCurrentUser }) {
     Axios.delete(`/reply/${id}`)
       .then((reply) => {
         console.log("deleted");
-        alert.show("reply added successfuly", {
+        alert.show("reply deleted successfuly", {
           type: "success",
         });
         Axios.get(`/product/${productID}`).then((product) => {
